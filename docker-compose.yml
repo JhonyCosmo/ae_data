@@ -1,0 +1,20 @@
+mysql2:    
+    container_name: ae-mysql
+    image: mysql:5.7
+    ports:
+        - 3305:3306
+    command: --init-file /data/application/init.sql
+    volumes:
+        - ./init.sql:/data/application/init.sql
+    environment:
+        MYSQL_ROOT_PASSWORD: qaz@123
+        MYSQL_ROOT_USER: root        
+        MYSQL_DATABASE: ae_data             
+mongodb:    
+    container_name: ae-mongodb
+    image: mongo:latest
+    ports:
+        - 27017:27017
+        - 28017:28017
+    environment:
+        MONGODB_PASS: qaz@123   
